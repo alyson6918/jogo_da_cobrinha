@@ -1,0 +1,51 @@
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(39, 39, 39);
+}
+.tittle {
+    color: rgb(51, 150, 38);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+}
+.container .cabecalho {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
+.container .cabecalho i {
+    height: 100%;
+    font-size: 25px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    color: red;
+}
+header{
+    background-color: rgb(35, 119, 23);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+header p {
+    color: rgb(189, 189, 189);
+    font-size: 20pt;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+footer{
+    margin-top: 30px;
+    background-color: rgb(35, 119, 23);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+footer p {
+    color: rgb(189, 189, 189);
+    font-size: 20pt;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
