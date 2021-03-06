@@ -3,6 +3,11 @@ let context = canvas.getContext("2d");
 let box = 32;
 let snake = [];
 let direction = "right";
+var s = document.getElementById("pontuacao");
+var r = document.getElementById("recorde");
+var rec = 0;
+var point = 0;
+var state = 0;
 
 snake[0] = {
     x: 8 * box,
@@ -44,6 +49,8 @@ function update (event){
 
 function iniciarJogo(){
 
+      
+
     if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
     else if(snake[0].x < 0 * box && direction == "left") snake[0].x = 16 * box;
     else if(snake[0].y > 15 * box && direction == "up") snake[0].y = 0;
@@ -52,13 +59,17 @@ function iniciarJogo(){
     for (i = 1; i < snake.length; i++){
         if (snake[0].x == snake[i].x && snake[0].y == snake[i].y){
             clearInterval(jogo);
-            alert("game-over :(");
+            alert("GAME-OVER :( \n \nPontuação: " + point);
+            point = 0;
+            state = 0;
         }
     }
 
     criarBG();
     criarCobrinha();
     drawnFood();
+
+    
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
@@ -82,15 +93,38 @@ function iniciarJogo(){
     else{
         food.x = Math.floor(Math.random() * 15 + 1) * box;
         food.y = Math.floor(Math.random() * 15 + 1) * box;
-    }
-
-
+        point ++;
+    } 
     
     let newhead = {
         x: snakeX,
         y: snakeY
     }
-    snake.unshift(newhead);
+    snake.unshift(newhead); 
+
+
+    if (point > rec){
+        rec = point;
+    }
+
+    s.innerHTML = "Pontuação: " + point;
+    r.innerHTML = "Recorde: " + rec;
 }
 
-let jogo = setInterval(iniciarJogo, 120);
+function inicio()
+{
+    if (state == 0) {
+        snake = [];
+        snake[0] ={
+            x: 8 * box,
+            y: 8 * box
+        };
+        direction = "right";
+        food ={
+            x: Math.floor(Math.random() * 15 + 1) * box,
+            y: Math.floor(Math.random() * 15 + 1) * box
+        };
+        state = 1;
+        jogo = setInterval(iniciarJogo, 120);
+    }
+}
