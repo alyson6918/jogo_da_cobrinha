@@ -5,4 +5,4 @@
 - pagina redesenhada com CSS e adicionamento de elementos visuais
 - velocidade do jogo aumentada
 - adicionado pontuação e recorde
-
+- adicionado configuração de controle "WASD"
